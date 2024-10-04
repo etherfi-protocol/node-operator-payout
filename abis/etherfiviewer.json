@@ -1,0 +1,456 @@
+[
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "previousAdmin",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "newAdmin",
+                "type": "address"
+            }
+        ],
+        "name": "AdminChanged",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "beacon",
+                "type": "address"
+            }
+        ],
+        "name": "BeaconUpgraded",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint8",
+                "name": "version",
+                "type": "uint8"
+            }
+        ],
+        "name": "Initialized",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "previousOwner",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "implementation",
+                "type": "address"
+            }
+        ],
+        "name": "Upgraded",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "_validatorIds",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "DelegationManager_delegatedTo",
+        "outputs": [
+            {
+                "internalType": "address[]",
+                "name": "_delegatedTo",
+                "type": "address[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address[]",
+                "name": "_operators",
+                "type": "address[]"
+            }
+        ],
+        "name": "DelegationManager_operatorDetails",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "address",
+                        "name": "earningsReceiver",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "delegationApprover",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint32",
+                        "name": "stakerOptOutWindowBlocks",
+                        "type": "uint32"
+                    }
+                ],
+                "internalType": "struct IDelegationManager.OperatorDetails[]",
+                "name": "_operatorDetails",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "_validatorIds",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "EigenPodManager_podOwnerShares",
+        "outputs": [
+            {
+                "internalType": "int256[]",
+                "name": "_podOwnerShares",
+                "type": "int256[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "_validatorIds",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "EigenPod_hasRestaked",
+        "outputs": [
+            {
+                "internalType": "bool[]",
+                "name": "_hasRestaked",
+                "type": "bool[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "_validatorIds",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "EigenPod_mostRecentWithdrawalTimestamp",
+        "outputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "_mostRecentWithdrawalTimestamp",
+                "type": "uint256[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "_validatorIds",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "EigenPod_nonBeaconChainETHBalanceWei",
+        "outputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "_nonBeaconChainETHBalanceWei",
+                "type": "uint256[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "_validatorIds",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "bytes[][]",
+                "name": "_validatorPubkeys",
+                "type": "bytes[][]"
+            }
+        ],
+        "name": "EigenPod_validatorPubkeyHashToInfo",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint64",
+                        "name": "validatorIndex",
+                        "type": "uint64"
+                    },
+                    {
+                        "internalType": "uint64",
+                        "name": "restakedBalanceGwei",
+                        "type": "uint64"
+                    },
+                    {
+                        "internalType": "uint64",
+                        "name": "mostRecentBalanceUpdateTimestamp",
+                        "type": "uint64"
+                    },
+                    {
+                        "internalType": "enum IEigenPod.VALIDATOR_STATUS",
+                        "name": "status",
+                        "type": "uint8"
+                    }
+                ],
+                "internalType": "struct IEigenPod.ValidatorInfo[][]",
+                "name": "_validatorInfos",
+                "type": "tuple[][]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "_validatorIds",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "bytes[][]",
+                "name": "_validatorPubkeys",
+                "type": "bytes[][]"
+            }
+        ],
+        "name": "EigenPod_validatorStatus",
+        "outputs": [
+            {
+                "internalType": "enum IEigenPod.VALIDATOR_STATUS[][]",
+                "name": "_validatorStatuses",
+                "type": "uint8[][]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "_validatorIds",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "EigenPod_withdrawableRestakedExecutionLayerGwei",
+        "outputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "_withdrawableRestakedExecutionLayerGwei",
+                "type": "uint256[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "_validatorIds",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "EtherFiNodesManager_etherFiNodeAddress",
+        "outputs": [
+            {
+                "internalType": "address[]",
+                "name": "_etherFiNodeAddresses",
+                "type": "address[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "_validatorIds",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "EtherFiNodesManager_splitBalanceInExecutionLayer",
+        "outputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "_withdrawalSafe",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "_eigenPod",
+                "type": "uint256[]"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "_delayedWithdrawalRouter",
+                "type": "uint256[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "_validatorIds",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "EtherFiNodesManager_withdrawableBalanceInExecutionLayer",
+        "outputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "_withdrawableBalance",
+                "type": "uint256[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_addressProvider",
+                "type": "address"
+            }
+        ],
+        "name": "initialize",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "proxiableUUID",
+        "outputs": [
+            {
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "renounceOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "newImplementation",
+                "type": "address"
+            }
+        ],
+        "name": "upgradeTo",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "newImplementation",
+                "type": "address"
+            },
+            {
+                "internalType": "bytes",
+                "name": "data",
+                "type": "bytes"
+            }
+        ],
+        "name": "upgradeToAndCall",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    }
+]
